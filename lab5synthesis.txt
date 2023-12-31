@@ -1,0 +1,18 @@
+*****************************
+* Lab 5 Synthesis Questions *
+*****************************
+Name(s): Ritesh Kanchi, Raymond Zou
+NetID(s): rkanchi, ryz
+
+
+-----------------------------------------------------------
+1) Alignment: 16 bytes
+   Reasoning: When allocating space via malloc, blocks are rounded up to a multiple of the alignment. At malloc(16), the difference in address between it and class_grades was 32. This also remained true from malloc(16) to malloc(24) (malloc(1) to malloc(24) all round up to 32). However, at malloc(25), the difference increased to 48. Since the block size jumps from 32 bytes to 48 bytes, we know the alignment is 16 bytes.
+
+
+-----------------------------------------------------------
+2) Boundary Tag Size: 8 bytes
+   Reasoning: We know from the prior question that at malloc(25) there 48 bytes allocated, and at malloc(24), there are 32 bytes allocated. This means that 24 bytes is the greatest payload size we can allocate before the block size increases and rounds with alignment. We also know there wouldn't be any extra padding due to this. 32 - 24 = 8 bytes.
+
+
+-----------------------------------------------------------
